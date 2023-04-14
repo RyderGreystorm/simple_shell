@@ -66,7 +66,7 @@ int main(void)
 		for (j = 0; token != NULL; j++)
 		{
 			argv[j] = malloc(sizeof(char) * _strlen(token));
-			_strcpy(argv[i], token);
+			_strcpy(argv[j], token);
 			token = strtok(NULL, delim);
 		}
 		argv[j] = NULL;
