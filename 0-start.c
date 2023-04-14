@@ -1,16 +1,13 @@
-#include "main.h"
+#include <unistd.h>
 
 /**
- * main - entry level of our application
- * Return: 0 for success and 1 for failure
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-
-int main(void)
+int _putchar(char c)
 {
-	int a = 5;
-	int b = 10;
-	int sum = a + b;
-
-	printf(" Total for a and b is %d\n", sum);
-	return (0);
+	return (write(1, &c, 1));
 }
