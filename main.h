@@ -5,8 +5,15 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <string.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 void _strcpy(char *des, char *src);
 int _strlen(char *str);
 int _putchar(char c);
+void exec(char **argv);
+char *get_path(char *cmd);
+char *_strcat(char *des, char *src);
+char *_strdup(char *str);
 #endif /**MAIN_H*/

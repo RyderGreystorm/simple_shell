@@ -74,10 +74,9 @@ int main(void)
 		for (j = 0; j < tokenNum; j++)
 			printf("%s\n", argv[j]);
 
-		free(argv);
-		free(buffer);
-		free(buffer_cpy);
-
 	}
+	free(argv);
+	free(buffer);
+	free(buffer_cpy);
 	return (0);
 }
