@@ -70,10 +70,7 @@ int main(void)
 			token = strtok(NULL, delim);
 		}
 		argv[j] = NULL;
-
-		for (j = 0; j < tokenNum; j++)
-			printf("%s\n", argv[j]);
-
+		exec(argv);
 	}
 	free(argv);
 	free(buffer);

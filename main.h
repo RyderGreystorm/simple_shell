@@ -9,7 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-void _strcpy(char *des, char *src);
+char *_strcpy(char *des, char *src);
 int _strlen(char *str);
 int _putchar(char c);
 void exec(char **argv);

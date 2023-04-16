@@ -22,12 +22,14 @@ int _strlen(char *str)
  * Return: destination string
  */
 
-void _strcpy(char *des, char *src)
+char * _strcpy(char *des, char *src)
 {
 	int i;
 
 	for (i = 0; src[i] != '\0'; i++)
 		des[i] = src[i];
+	des[i] = '\0';
+	return (des);
 }
 
 /**
