@@ -11,6 +11,7 @@
 
 char *_strcpy(char *des, char *src);
 int _strlen(char *str);
+void _printf(char *str);
 int _putchar(char c);
 void exec(char **argv);
 char *get_path(char *cmd);
