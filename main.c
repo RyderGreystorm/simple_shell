@@ -24,7 +24,7 @@ int main(void)
 
 	while (i)
 	{
-		printf("%s", prompt);
+		_printf(prompt);
 
 		readNum = getline(&buffer, &n, stdin);
 	/*Checking if the getline function failed or user pressed CTRL + D*/
@@ -70,7 +70,7 @@ int main(void)
 			token = strtok(NULL, delim);
 		}
 		argv[j] = NULL;
-		exec(argv);
+		fork_exe(argv);
 	}
 	free(argv);
 	free(buffer);

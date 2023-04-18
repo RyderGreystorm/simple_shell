@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * exec - hels in executing commands from the binary directory
+ * exec - helps in executing commands from the binary directory
  * @argv: takes the first argument which is file name from what is read
  */
 
