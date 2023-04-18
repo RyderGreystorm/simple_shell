@@ -84,22 +84,6 @@ char *_strdup(char *str)
 }
 
 /**
- * _printf - prints to the stdout
- * @str: string passed to the function
- */
-
-void _printf(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		_putchar(str[i]);
-	}
-}
-
-
-/**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  * Return: On success 1.
@@ -108,4 +92,19 @@ void _printf(char *str)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+ * _printf - prints to the stdout
+ * @str: string passed to the function
+ */
+
+void _printf(char *str)
+{
+        int i;
+
+        for (i = 0; str[i] != '\0'; i++)
+        {
+                _putchar(str[i]);
+        }
 }
