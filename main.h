@@ -19,4 +19,5 @@ int fork_exe(char **argv);
 char *get_path(char *cmd);
 char *_strcat(char *des, char *src);
 char *_strdup(char *str);
+
 #endif /**MAIN_H*/
