@@ -19,4 +19,8 @@ int fork_exe(char **argv);
 char *get_path(char *cmd);
 char *_strcat(char *des, char *src);
 char *_strdup(char *str);
+void exit_func(char **args);
+void _cd(char **args);
+void env_builtin(void);
+extern char **environ;
 #endif /**MAIN_H*/
