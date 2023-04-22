@@ -15,6 +15,7 @@ void env_builtin(char **args)
 	while (*unix_env != NULL)
 	{
 		_printf(*unix_env);
+		_putchar('\n');
 		unix_env++;
 	}
 }
