@@ -23,4 +23,7 @@ extern char **environ;
 void exit_func(char **args);
 void _cd(char **args);
 void env_builtin(void);
+int executeBuiltIn(char **argv);
+char **tokenization(char *buffer);
+int fork_exe(char **argv);
 #endif /**MAIN_H*/
