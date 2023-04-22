@@ -20,6 +20,7 @@ char *get_path(char *cmd);
 char *_strcat(char *des, char *src);
 char *_strdup(char *str);
 extern char **environ;
+char *get_input(void);
 void exit_func(char **args);
 void _cd(char **args);
 void env_builtin(void);
