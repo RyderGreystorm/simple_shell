@@ -10,7 +10,8 @@
 char **tokenization(char *buffer)
 {
 	int j = 0;
-	char **argv, char *buffer_cpy = NULL;
+	char **argv;
+	char *buffer_cpy = NULL;
 	const char *delim = " \n";
 	int tokenNum = 0; /**number of tokens from stdin*/
 	char *token; /**Pointer to tokenized string*/

@@ -22,7 +22,7 @@ int main(void)
 			free(buffer);
 			free(args);
 
-		} while (returnStatus);
+		} while (retStatus);
 		free(buffer);
 		free(args);
 
