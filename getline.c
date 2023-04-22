@@ -21,9 +21,10 @@ char *get_input(void)
 		{
 			buf_len = read(STDIN_FILENO, buf, sizeof(buf));
 			buf_pos = 0;
-			if (buf_len <= 0)
+			if (buf_len <= 0 || buf == NULL)
 			{
-				return (NULL);
+				perror("Exit");
+				exit(EXIT_FAILURE);
 			}
 		}
 
