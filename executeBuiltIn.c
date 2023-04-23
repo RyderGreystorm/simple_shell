@@ -8,9 +8,9 @@
  */
 int executeBuiltIn(char **argv)
 {
-	char *parsedStr[] = { "exit", "cd", "env" };
+	char *parsedStr[] = { "exit", "cd", "env", "setenv", "unsetenv"};
 
-	void (*parsedFunc[]) (char **) = { &exit_func, &_cd, &env_builtin };
+	void (*parsedFunc[]) (char **) = { &exit_func, &_cd, &env_builtin, &setEnv, &unsetEnv};
 
 	int parsedSize = sizeof(parsedStr) / sizeof(char *);
 	int i;

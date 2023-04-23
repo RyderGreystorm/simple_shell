@@ -24,6 +24,8 @@ char *get_input(void);
 void exit_func(char **args);
 void _cd(char **args);
 void env_builtin(char **args);
+void setEnv(char **args);
+void unsetEnv(char **args);
 int executeBuiltIn(char **argv);
 char **tokenization(char *buffer);
 int fork_exe(char **argv);
