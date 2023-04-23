@@ -30,4 +30,5 @@ void unsetEnv(char **args);
 int executeBuiltIn(char **argv);
 char **tokenization(char *buffer);
 int fork_exe(char **argv);
+int _strtok(void);
 #endif /**MAIN_H*/
