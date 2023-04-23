@@ -22,7 +22,7 @@ char *_strdup(char *str);
 extern char **environ;
 char *get_input(void);
 void exit_func(char **args);
-void _cd(char **args);
+void chdirectory(char **argv);
 void env_builtin(char **args);
 void setEnv(char **args);
 void unsetEnv(char **args);
