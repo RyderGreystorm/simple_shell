@@ -1,21 +1,47 @@
 #include "main.h"
 
 /**
- * _cd - it changes the current working directory of the shell.
- * @args: parameter used to pass the command-line arguments to the function.
+ * chdirectory - it changes the current working directory of the shell.
+ * @argv: parameter used to pass the command-line arguments to the function.
  */
 
-void _cd(char **args)
+void chdirectory(char **argv)
 {
-	if (args[1] == NULL)
-	{
-		perror("cd: expected argument to \"cd\"\n");
-	}
+	char pwd[1024];
+	char *directory = NULL;
+	/*Check for directroy argument*/
+	if (argv[1] != NULL)
+		directory = argv[1];
 	else
 	{
-		if (chdir(args[1]) != 0)
-		{
-			perror("cd");
-		}
+		directory = getenv("HOME");
+		if (directory == NULL)
+			return;
 	}
+
+	/*  "cd -" handling*/
+	if (directory && strcmp(directory, "-") == 0)
+	{
+		directory = getenv("OLDPWD");
+		if (directory == NULL)
+		{
+			perror("Directory");
+			return;
+		}
+		printf("%s\n", directory);
+	}
+	if (chdir(directory) != 0)
+	{
+		perror("cd");
+		return;
+	}
+	if (getcwd(pwd, sizeof(pwd)) != NULL)
+		setenv("PWD", pwd, 1);
+	else
+	{
+		perror("getcwd");
+		return;
+	}
+	setenv("OLDPWD", getenv("PWD"), 1);
+	setenv("PWD", getcwd(NULL, 0), 1);
 }
