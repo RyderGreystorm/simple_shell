@@ -15,6 +15,7 @@ int _strlen(char *str);
 void _printf(char *str);
 int _putchar(char c);
 void exec(char **argv);
+int _strcmp(const char *str1, const char *str2);
 int fork_exe(char **argv);
 char *get_path(char *cmd);
 char *_strcat(char *des, char *src);
