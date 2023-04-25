@@ -39,7 +39,6 @@ char **tokenization(char *buffer)
 
 	/**allocate space for array that will hold tokens*/
 	argv = malloc(sizeof(char *) * tokenNum);
-
 	token = strtok(buffer_cpy, delim); /**Storing each token in the array*/
 
 	for (j = 0; token != NULL; j++)

@@ -1,46 +1,51 @@
 #include "main.h"
 
 /**
- * variables_replacement - handles variable replacements in the shell
- *@str: line read from the stdin
- *Return: string from the stdin
+ * replace_variables - handles variable replacements in the shell
+ * @str: line read from the stdin
+ * Return: string from the stdin
  */
 
-char *variables_replacement(char *str)
+char *replace_variables(char *str)
 {
-	char *buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
-	char *retBuffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	char *output = malloc(MAX_INPUT_SIZE * sizeof(char));
+	char *var_value;
 	int i = 0, j = 0;
-	pid_t pid = getpid();
-	int exit_status = 0;
-	char *path = getenv("PATH");
 
 	while (str[i] != '\0')
 	{
-		if (str[i] == '$' && str[i + 1] == '?')
+		if (str[i] == '$')
 		{
-			snprintf(buffer, BUFFER_SIZE, "%d", exit_status);
-			_strcat(retBuffer, buffer);
-			j += _strlen(buffer);
-			i += 2;
-		}
-		else if (str[i] == '$' && str[i + 1] == '$')
-		{
-			snprintf(buffer, BUFFER_SIZE, "%d", pid);
-			_strcat(retBuffer, buffer);
-			j += _strlen(buffer);
-			i += 2;
-		}
-		else if (str[i] == '$' && str[i + 1] == 'P' && str[i + 2] == 'A' && str[i + 3] == 'T' && str[i + 4] == 'H')
-		{
-			_strcat(retBuffer, path);
-			j += _strlen(path);
-			i += 5;
+			i++;
+			if (str[i] == '?')
+			{
+				forkStatus();
+				var_value = malloc(sizeof(char) * 4);
+
+			}
+			else if (str[i] == '$')
+			{
+				pid_t pidd = getpid();
+
+				var_value = malloc(sizeof(char) * 16);
+				printf("%d\n", pidd);
+			}
+			else
+			{
+				continue;
+			}
 		}
 		else
-			retBuffer[j++] = getline[i++];
+		{
+			output[j] = str[i];
+			i++;
+			j++;
+			continue;
+		}
+		/**Append variable value to output string*/
+		strcat(output, var_value);
+		j += strlen(var_value);
+		free(var_value);
 	}
-		retBuffer[j] = '\0';
-		free(buffer);
-		return (retBuffer);
+	return (output);
 }

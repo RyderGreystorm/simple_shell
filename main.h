@@ -32,4 +32,6 @@ int executeBuiltIn(char **argv);
 char **tokenization(char *buffer);
 int fork_exe(char **argv);
 int _strtok(void);
+void forkStatus(void);
+char *replace_variables(char *str);
 #endif /**MAIN_H*/
