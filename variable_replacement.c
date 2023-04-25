@@ -38,7 +38,7 @@ char *variables_replacement(char *str)
 			i += 5;
 		}
 		else
-			retBuffer[j++] = getline[i++];
+			retBuffer[j++] = str[i++];
 	}
 		retBuffer[j] = '\0';
 		free(buffer);
