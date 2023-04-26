@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
-#define MAX_INPUT_SIZE 1024
-
+#define INPUT_SIZE 1024
+#define BUFFER_SIZE 1024
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -34,4 +34,6 @@ int executeBuiltIn(char **argv);
 char **tokenization(char *buffer);
 int fork_exe(char **argv);
 int _strtok(void);
+void forkStatus(void);
+char *replace_variables(char *str);
 #endif /**MAIN_H*/
