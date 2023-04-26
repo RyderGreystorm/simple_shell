@@ -10,21 +10,17 @@ int main(void)
 {
 	char *prompt = "userhell$ ";
 	int retStatus;
-	char *buffer;
-	char **args;
+	char *buffer = NULL;
+	char **args = NULL;
 
 		do {
 			_printf(prompt);
-			buffer = get_input();
+			buffer = readLine();
 			args = tokenization(buffer);
 			retStatus = executeBuiltIn(args);
 
-			free(buffer);
-			free(args);
 
 		} while (retStatus);
-		free(buffer);
-		free(args);
 
 	return (EXIT_SUCCESS);
 }

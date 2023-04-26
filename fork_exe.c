@@ -10,7 +10,7 @@
 int fork_exe(char **argv)
 {
 	pid_t pid;
-	int status;
+	int status = 0;
 
 	pid = fork();
 	if (pid == 0)
@@ -27,9 +27,13 @@ int fork_exe(char **argv)
 	else
 	{
 		do {
-			waitpid(pid, &status, WUNTRACED);
-		}
-	while (!WIFEXITED(status) && !WIFSIGNALED(status));
+			if (waitpid(pid, &status, WUNTRACED) == -1)
+			{
+				perror("lsh");
+				status = -1;
+				break;
+			}
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 	return (1);
 }

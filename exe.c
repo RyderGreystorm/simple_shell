@@ -19,6 +19,6 @@ void exec(char **argv)
 		newPath = get_path(cmd);
 	/*using execve to execute the command*/
 		if (execve(newPath, argv, NULL) == -1)
-			return;
+			perror("error");
 	}
 }
