@@ -7,7 +7,7 @@
  * Return: 1 (success)
  */
 
-int fork_exe(char **argv)
+void fork_exe(char **argv)
 {
 	pid_t pid;
 	int status = 0;
@@ -37,12 +37,9 @@ int fork_exe(char **argv)
 		if (waitpid(pid, &status, WUNTRACED) == -1)
 		{
 			perror("lsh");
-			return (1);
 		}
 		if (!WIFEXITED(status) && !WIFSIGNALED(status) == 0)
-			return (0);
-		else
-			return (1);
+			return;
+
 	}
-	return (0);
 }

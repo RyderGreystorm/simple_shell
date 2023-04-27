@@ -8,17 +8,16 @@
 
 int main(void)
 {
-	int retStatus;
 	char *buffer = NULL;
 	char **args = NULL;
 
-		do {
+		while (1)
+		{
 			buffer = readLine();
 			args = tokenization(buffer);
-			retStatus = executeBuiltIn(args);
+			fork_exe(args);
+		}
 
-
-		} while (retStatus);
 
 	return (EXIT_SUCCESS);
 }
