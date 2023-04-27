@@ -8,13 +8,11 @@
 
 int main(void)
 {
-	char *prompt = "userhell$ ";
 	int retStatus;
 	char *buffer = NULL;
 	char **args = NULL;
 
 		do {
-			_printf(prompt);
 			buffer = readLine();
 			args = tokenization(buffer);
 			retStatus = executeBuiltIn(args);
