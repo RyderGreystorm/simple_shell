@@ -1,7 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
-#define INPUT_SIZE 1024
 #define BUFFER_SIZE 1024
+#define CMD_LEN 100
+#define SHELL "$ "
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -18,6 +19,7 @@ int _strlen(char *str);
 void _printf(char *str);
 int _putchar(char c);
 void exec(char **argv);
+size_t my_strcspn(const char *str, const char *reject);
 int _strcmp(const char *str1, const char *str2);
 void fork_exe(char **argv);
 char *get_path(char *cmd);
