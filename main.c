@@ -17,27 +17,26 @@ int main(int argc, char **argv)
 	buffer = malloc(sizeof(char) * CMD_LEN);
 	if (!buffer)
 	{
-		perror("Memory");
+		perror("");
 		exit(EXIT_FAILURE);
 	}
 	while (1)
 	{
-		_printf(SHELL);
 		if (getline(&buffer, &buffsize, stdin) == -1)
 		{
 			if (feof(stdin))
 			{
-				perror("eof");
+				perror("");
 				break;
 			}
-			perror("eof");
+			perror("");
 			exit(EXIT_FAILURE);
 		}
 		buffer[my_strcspn(buffer, "\n")] = 0;
 		pid = fork();
 		if (pid == -1)
 		{
-			perror("fork");
+			perror("");
 			exit(EXIT_FAILURE);
 		}
 		else if (pid == 0)
@@ -51,7 +50,7 @@ int main(int argc, char **argv)
 			{
 				if (wait(&status) == -1)
 				{
-					perror("wait");
+					perror("");
 					exit(EXIT_FAILURE);
 				}
 				if (WIFEXITED(status))
