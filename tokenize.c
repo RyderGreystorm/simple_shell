@@ -47,6 +47,7 @@ char **tokenization(char *buffer)
 		token = strtok(NULL, delim);
 	}
 	argv[j] = NULL;
+	free(buffer);
 	free(buffer_cpy);
 	return (argv);
 }

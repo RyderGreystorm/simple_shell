@@ -46,6 +46,5 @@ char *get_path(char *cmd)
 			return (cmd);
 		return (NULL);
 	}
-	free(f_path);
 	return (NULL);
 }

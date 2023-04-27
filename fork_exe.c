@@ -11,13 +11,21 @@ int fork_exe(char **argv)
 {
 	pid_t pid;
 	int status = 0;
+	char *cmd = NULL, *newPath = NULL;
 
+	if (argv)
+	{
+		cmd = argv[0];
+		newPath = get_path(cmd);
+	}
 	pid = fork();
 	if (pid == 0)
 	{
-		/*child process*/
-		exec(argv);
-		exit(EXIT_FAILURE);
+		if (execve(newPath, argv, NULL) == -1)
+		{
+			perror("error");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else if (pid < 0) /**Error forking*/
 	{
@@ -26,14 +34,15 @@ int fork_exe(char **argv)
 
 	else
 	{
-		do {
-			if (waitpid(pid, &status, WUNTRACED) == -1)
-			{
-				perror("lsh");
-				status = -1;
-				break;
-			}
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		if (waitpid(pid, &status, WUNTRACED) == -1)
+		{
+			perror("lsh");
+			return (1);
+		}
+		if (!WIFEXITED(status) && !WIFSIGNALED(status) == 0)
+			return (0);
+		else
+			return (1);
 	}
-	return (1);
+	return (0);
 }
