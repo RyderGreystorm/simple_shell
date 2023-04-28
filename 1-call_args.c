@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * call_args - find args to be parsed
  * @args: buffer.

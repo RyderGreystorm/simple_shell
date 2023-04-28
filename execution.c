@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * execute - executes a command
  * @args: args array

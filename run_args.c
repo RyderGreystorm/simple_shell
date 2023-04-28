@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * run_args - execute arguments
  * @args: args in array.

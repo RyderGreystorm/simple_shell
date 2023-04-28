@@ -7,15 +7,15 @@
  */
 char *fill_path_dir(char *path)
 {
-	int x, length = 0;
+	int index, length = 0;
 	char *path_copy, *pwd;
 
 	pwd = *(_getenv("PWD")) + 4;
-	for (x = 0; path[x]; x++)
+	for (index = 0; path[index]; index++)
 	{
-		if (path[x] == ':')
+		if (path[index] == ':')
 		{
-			if (path[x + 1] == ':' || x == 0 || path[x + 1] == '\0')
+			if (path[index + 1] == ':' || index == 0 || path[index + 1] == '\0')
 				length += _strlen(pwd) + 1;
 			else
 				length++;
@@ -27,16 +27,16 @@ char *fill_path_dir(char *path)
 	if (!path_copy)
 		return (NULL);
 	path_copy[0] = '\0';
-	for (x = 0; path[x]; x++)
+	for (index = 0; path[index]; index++)
 	{
-		if (path[x] == ':')
+		if (path[index] == ':')
 		{
-			if (x == 0)
+			if (index == 0)
 			{
 				_strcat(path_copy, pwd);
 				_strcat(path_copy, ":");
 			}
-			else if (path[x + 1] == ':' || path[x + 1] == '\0')
+			else if (path[index + 1] == ':' || path[index + 1] == '\0')
 			{
 				_strcat(path_copy, ":");
 				_strcat(path_copy, pwd);
@@ -46,7 +46,7 @@ char *fill_path_dir(char *path)
 		}
 		else
 		{
-			_strncat(path_copy, &path[x], 1);
+			_strncat(path_copy, &path[index], 1);
 		}
 	}
 	return (path_copy);

@@ -17,10 +17,12 @@ int main(int argc, char *argv[])
 	hist = 1;
 	aliases = NULL;
 	signal(SIGINT, sig_handler);
+
 	*exe_ret = 0;
 	environ = _cpyenv();
 	if (!environ)
 		exit(-100);
+
 	if (argc != 1)
 	{
 		rtn = _file_commands(argv[1], exe_ret);
@@ -28,6 +30,7 @@ int main(int argc, char *argv[])
 		free_alias_list(aliases);
 		return (*exe_ret);
 	}
+
 	if (!isatty(STDIN_FILENO))
 	{
 		while (rtn != E_O_F && rtn != EXIT_VAR)
@@ -36,6 +39,7 @@ int main(int argc, char *argv[])
 		free_alias_list(aliases);
 		return (*exe_ret);
 	}
+
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, 10);
