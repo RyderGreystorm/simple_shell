@@ -13,6 +13,7 @@ int _strlen(const char *str)
 	if (!str)
 		return (len);
 	for (len = 0; str[len]; len++)
+		len += 1;
 
 	return (len);
 }

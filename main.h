@@ -74,8 +74,8 @@ char *get_env_value(char *beginning, int len);
 void variable_replacement(char **args, int *exe_ret);
 void _printf(char *str);
 void *my_realloc(void *ptr, unsigned int size1, unsigned int size2);
-void _lineptr(char **ptr, size_t *mem, char *buffer, size_t bytes);
-ssize_t _getline(char **ptr, size_t *mem, FILE *stream);
+void _lineptr(char **ptr, size_t *m, char *buffer, size_t b);
+ssize_t _getline(char **ptr, size_t *m, FILE *stream);
 char *get_location(char *cmd);
 
 /*Aliases*/
@@ -105,7 +105,7 @@ char *fill_path_dir(char *path);
 lists_t *get_path_dir(char *path);
 
 /*logical operators*/
-void logical_ops(char *buffer, ssize_t *_len);
+void logical_ops(char *buffer, ssize_t *line_len);
 ssize_t get_new_len(char *buffer);
 void handle_line(char **buffer, ssize_t read);
 
@@ -154,6 +154,6 @@ aliases_t *add_alias_end(aliases_t **head, char *name, char *value);
 void free_alias_list(aliases_t *head);
 lists_t *add_node_end(lists_t **head, char *dir);
 void free_list(lists_t *head);
-
+void sig_handler(int sign);
 
 #endif /*MAIN_H*/
