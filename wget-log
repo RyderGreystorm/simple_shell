@@ -1,0 +1,6 @@
+--2023-04-28 06:33:00--  https://drive.google.com/uc?id=1kNwN-NjKzOcN0DXtS_fTtTbZ3qWp0q4_
+Resolving drive.google.com (drive.google.com)... 172.253.63.101, 172.253.63.100, 172.253.63.102, ...
+Connecting to drive.google.com (drive.google.com)|172.253.63.101|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2023-04-28 06:33:00 ERROR 404: Not Found.
+
