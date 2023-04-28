@@ -1,6 +1,50 @@
 #include "main.h"
 
 /**
+ * token_length - finds size of token
+ * @token: token.
+ * @delim: The delim.
+ * Return: index of delmin
+ */
+int token_length(char *token, char *delim)
+{
+	int index = 0, len = 0;
+
+	while (*(token + index) && *(token + index) != *delim)
+	{
+		len++;
+		index++;
+	}
+
+	return (len);
+}
+
+/**
+ * count_tokens - count token
+ * @token: token
+ * @delim: delimiter
+ * Return: strlen of token.
+ */
+int count_tokens(char *token, char *delim)
+{
+	int index, tokens = 0, len = 0;
+
+	for (index = 0; *(token + index); index++)
+		len++;
+
+	for (index = 0; index < len; index++)
+	{
+		if (*(token + index) != *delim)
+		{
+			tokens++;
+			index += token_length(token + index, delim);
+		}
+	}
+
+	return (tokens);
+}
+
+/**
  * _strtok - tokenization function.
  * @buffer: buffer.
  * @delim: The delimiter
